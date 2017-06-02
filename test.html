@@ -8,7 +8,7 @@ var formSubmitted = false
 
 
 // loads the sharepoint list
-function loadSharepointList(args = {}) {
+function loadSharepointList(arg) {
 
 
 	// create the sharepoint content.
@@ -21,9 +21,11 @@ function loadSharepointList(args = {}) {
 	var itemCreateInfo = new SP.ListItemCreationInformation();
     this.oListItem = oList.addItem(itemCreateInfo);// this is the window in this context, we're giving the window a oListItem property and giviing it the value of oList.addItem(itemCreateInfo)
 
-        
-    oListItem.set_item('Title', 'Sloppy Joe!'); //burger name, click edit columns and look at the query string in url bar, internal column name is after field=
-    oListItem.set_item('Burger_x0020_Joint_x0020_Name', 'Joes Burgs');//burger joint name, click edit columns and look at the query string in url bar, internal column name is after field=
+    for(var k in arg){
+      oListItem.set_item( k, arg[k]);	
+    }
+    // oListItem.set_item('Title', 'Sloppy Joe!'); //burger name, click edit columns and look at the query string in url bar, internal column name is after field=
+    // oListItem.set_item('Burger_x0020_Joint_x0020_Name', 'Joes Burgs');//burger joint name, click edit columns and look at the query string in url bar, internal column name is after field=
         
     oListItem.update();
 
@@ -44,7 +46,7 @@ function onQueryFailed(sender, args) {
 
 $(document).ready(function(){
 
-	$("input#burgerSubmit").onclick(function(event){
+	$("input#burgerSubmit").click(function(event){
 
  		event.preventDefault();
 
