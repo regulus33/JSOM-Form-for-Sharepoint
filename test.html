@@ -6,11 +6,6 @@
 
 var formSubmitted = false
 
-SP.SOD.executeFunc('sp.js', 'SP.ClientContext',	function () {
-
-	// load the sharepoint list.
-	loadSharepointList();
-});
 
 // loads the sharepoint list
 function loadSharepointList(args = {}) {
@@ -48,12 +43,34 @@ function onQueryFailed(sender, args) {
 }
 
 $(document).ready(function(){
+
 	$("input#burgerSubmit").onclick(function(event){
+
  		event.preventDefault();
+
  		var burgerJointName = $("input#burgerJointName").val();
+
  		var burgerName = $("input#burgerName").val();
+
  		var rating = $("select#dropDown").val()
-	})
+
+ 		listItemObjects = {
+
+ 		  "Title" : burgerName,
+
+ 		  "Burger_x0020_Joint_x0020_Name" : burgerJointName,
+
+ 		  "Rating" : rating
+
+ 		}
+
+ 		SP.SOD.executeFunc('sp.js', 'SP.ClientContext',	function () {
+	      // load the sharepoint list and create list items
+	   	  loadSharepointList(listItemObjects);
+        });
+
+	});
+
 
 })
 
