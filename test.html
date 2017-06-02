@@ -1,3 +1,14 @@
+<style>
+	input#burgerSubmit {
+	    margin-left: 0px;
+	    margin-top: 5px;
+	}
+	img#burger{
+		opacity: 0;
+		max-height: 40px;
+	}
+</style>
+
 <!-- <script type="text/javascript" src="/_layouts/15/SP.js"></script>
 <script type="text/javascript" src="/_layouts/15/sp.userprofiles.js"></script> -->
 <script type="text/javascript" src="https://sohodragon.sharepoint.com/sites/Training/zack-test/SiteAssets/jquery-3.2.1.min.js"></script>
@@ -38,6 +49,7 @@ function onQuerySucceeded() {
 
     alert('Item created: ' + oListItem.get_id());
     $("img").animate({"opacity":"1"}, 1500);
+
 }
 
 function onQueryFailed(sender, args) {
@@ -79,14 +91,11 @@ $(document).ready(function(){
 
 
 </script>
-<style>
-input#burgerSubmit {
-    margin-left: 0px;
-    margin-top: 5px;
-}
-</style>
+
+
 <table>
     <h4>Burger Feedback</h4>
+    <img  id="burger" src="http://hiphop4flint.com/wp-content/uploads/2017/04/Mybkexperience-Survey-Conclusion-Overview1.jpg"/>
 	<tr><td>Burger Joint Name</td><td><input id="burgerName" type="text"/></td></tr>
 	<tr><td>Burger Name</td><td><input id="burgerJointName" type="text"/></td></tr>
 		<td>
@@ -102,5 +111,5 @@ input#burgerSubmit {
 </table>
 <input id="burgerSubmit" type="submit">
 
-<img id="burger" style="opacity: 0" src="http://hiphop4flint.com/wp-content/uploads/2017/04/Mybkexperience-Survey-Conclusion-Overview1.jpg">
+
 
