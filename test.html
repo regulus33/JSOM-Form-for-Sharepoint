@@ -1,0 +1,66 @@
+<!-- <script type="text/javascript" src="/_layouts/15/SP.js"></script>
+<script type="text/javascript" src="/_layouts/15/sp.userprofiles.js"></script> -->
+<script type="text/javascript" src="https://sohodragon.sharepoint.com/sites/Training/zack-test/SiteAssets/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+// load all necessary sharepoint javascript libaries
+SP.SOD.executeFunc('sp.js', 'SP.ClientContext',	function () {
+
+	// load the sharepoint list.
+	loadSharepointList();
+});
+
+// loads the sharepoint list
+function loadSharepointList() {
+
+
+	// create the sharepoint content.
+	var clientContext = SP.ClientContext.get_current();
+	
+	// get the list by the title.
+	var oList = clientContext.get_web().get_lists().getByTitle('Burger Ratings');
+	debugger
+
+	var itemCreateInfo = new SP.ListItemCreationInformation();
+    this.oListItem = oList.addItem(itemCreateInfo);// this is the window in this context, we're giving the window a oListItem property and giviing it the value of oList.addItem(itemCreateInfo)
+
+        
+    oListItem.set_item('Title', 'Sloppy Joe!'); //burger name, click edit columns and look at the query string in url bar, internal column name is after field=
+    oListItem.set_item('Burger_x0020_Joint_x0020_Name', 'Joes Burgs');//burger joint name, click edit columns and look at the query string in url bar, internal column name is after field=
+        
+    oListItem.update();
+
+    clientContext.load(oListItem);
+        
+    clientContext.executeQueryAsync(Function.createDelegate(this, this.onQuerySucceeded), Function.createDelegate(this, this.onQueryFailed));
+}
+
+function onQuerySucceeded() {
+
+    alert('Item created: ' + oListItem.get_id());
+}
+
+function onQueryFailed(sender, args) {
+
+    alert('Request failed. ' + args.get_message() + '\n' + args.get_stackTrace());
+}
+
+
+</script>
+<table>
+    <h4>Burger Feedback</h4>
+	<tr><td>Juciness:</td>
+	<tr><td>Burger Joint Name</td><td><input id="burgerJointName" type="text"/></td></tr>
+	<tr><td>Burger Name</td><td><input id="burgerJointName" type="text"/></td></tr>
+		<td>
+		  <select id="dropDown" name="rating">
+			  <option value="1">1</option>
+			  <option value="2">2</option>
+			  <option value="3">3</option>
+			  <option value="4">4</option>
+			  <option value="5">5</option>
+		  </select>			
+		</td>
+	</tr>
+	<tr><input type="submit"></tr>
+</table>
+
