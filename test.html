@@ -37,6 +37,7 @@ function loadSharepointList(arg) {
 function onQuerySucceeded() {
 
     alert('Item created: ' + oListItem.get_id());
+    $("img").animate({"opacity":"1"}, 1500);
 }
 
 function onQueryFailed(sender, args) {
@@ -78,9 +79,14 @@ $(document).ready(function(){
 
 
 </script>
+<style>
+input#burgerSubmit {
+    margin-left: 0px;
+    margin-top: 5px;
+}
+</style>
 <table>
     <h4>Burger Feedback</h4>
-	<tr><td>Juciness:</td>
 	<tr><td>Burger Joint Name</td><td><input id="burgerName" type="text"/></td></tr>
 	<tr><td>Burger Name</td><td><input id="burgerJointName" type="text"/></td></tr>
 		<td>
@@ -93,6 +99,8 @@ $(document).ready(function(){
 		  </select>			
 		</td>
 	</tr>
-	<tr><input id="burgerSubmit" type="submit"></tr>
 </table>
+<input id="burgerSubmit" type="submit">
+
+<img id="burger" style="opacity: 0" src="http://hiphop4flint.com/wp-content/uploads/2017/04/Mybkexperience-Survey-Conclusion-Overview1.jpg">
 
