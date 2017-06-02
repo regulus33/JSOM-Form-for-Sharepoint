@@ -3,6 +3,9 @@
 <script type="text/javascript" src="https://sohodragon.sharepoint.com/sites/Training/zack-test/SiteAssets/jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
 // load all necessary sharepoint javascript libaries
+
+var formSubmitted = false
+
 SP.SOD.executeFunc('sp.js', 'SP.ClientContext',	function () {
 
 	// load the sharepoint list.
@@ -10,7 +13,7 @@ SP.SOD.executeFunc('sp.js', 'SP.ClientContext',	function () {
 });
 
 // loads the sharepoint list
-function loadSharepointList() {
+function loadSharepointList(args = {}) {
 
 
 	// create the sharepoint content.
@@ -44,12 +47,22 @@ function onQueryFailed(sender, args) {
     alert('Request failed. ' + args.get_message() + '\n' + args.get_stackTrace());
 }
 
+$(document).ready(function(){
+	$("input#burgerSubmit").onclick(function(event){
+ 		event.preventDefault();
+ 		var burgerJointName = $("input#burgerJointName").val();
+ 		var burgerName = $("input#burgerName").val();
+ 		var rating = $("select#dropDown").val()
+	})
+
+})
+
 
 </script>
 <table>
     <h4>Burger Feedback</h4>
 	<tr><td>Juciness:</td>
-	<tr><td>Burger Joint Name</td><td><input id="burgerJointName" type="text"/></td></tr>
+	<tr><td>Burger Joint Name</td><td><input id="burgerName" type="text"/></td></tr>
 	<tr><td>Burger Name</td><td><input id="burgerJointName" type="text"/></td></tr>
 		<td>
 		  <select id="dropDown" name="rating">
@@ -61,6 +74,6 @@ function onQueryFailed(sender, args) {
 		  </select>			
 		</td>
 	</tr>
-	<tr><input type="submit"></tr>
+	<tr><input id="burgerSubmit" type="submit"></tr>
 </table>
 
