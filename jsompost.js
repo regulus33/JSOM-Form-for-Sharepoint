@@ -1,20 +1,3 @@
-<style>
-	input#burgerSubmit {
-	    margin-left: 0px;
-	    margin-top: 5px;
-	}
-	img#burger{
-		opacity: 0;
-		max-height: 40px;
-	}
-</style>
-
-<!-- <script type="text/javascript" src="/_layouts/15/SP.js"></script>
-<script type="text/javascript" src="/_layouts/15/sp.userprofiles.js"></script> -->
-<script type="text/javascript" src="https://sohodragon.sharepoint.com/sites/Training/zack-test/SiteAssets/jquery-3.2.1.min.js"></script>
-<script type="text/javascript">
-// load all necessary sharepoint javascript libaries
-
 var formSubmitted = false
 
 
@@ -88,28 +71,3 @@ $(document).ready(function(){
 
 
 })
-
-
-</script>
-
-
-<table>
-    <h4>Burger Feedback</h4>
-    <img  id="burger" src="http://hiphop4flint.com/wp-content/uploads/2017/04/Mybkexperience-Survey-Conclusion-Overview1.jpg"/>
-	<tr><td>Burger Joint Name</td><td><input id="burgerName" type="text"/></td></tr>
-	<tr><td>Burger Name</td><td><input id="burgerJointName" type="text"/></td></tr>
-		<td>
-		  <select id="dropDown" name="rating">
-			  <option value="1">1</option>
-			  <option value="2">2</option>
-			  <option value="3">3</option>
-			  <option value="4">4</option>
-			  <option value="5">5</option>
-		  </select>			
-		</td>
-	</tr>
-</table>
-<input id="burgerSubmit" type="submit">
-
-
-

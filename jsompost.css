@@ -1,0 +1,11 @@
+input#burgerSubmit {
+    margin-left: 0px;
+    margin-top: 5px;
+}
+img#burger{
+	opacity: 0;
+	max-height: 40px;
+}
+input#burgerSubmit {
+   margin-bottom: 5px;
+}
